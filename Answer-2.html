@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Answer-2</title>
+</head>
+<body >
+	<h1>Answer-2</h1>
+<div class="back" style="background-image: url('bg-01.jpg');display: flex;">
+	<div class="box">
+	<span class="head">Coffee</span>
+	<p class="intro">
+		Here we sells coffee for the-Save the Aardvarks Foundation.	
+	</p>
+	<center>
+	<table class="table">
+		<tr>
+			<th>Category</th>
+			<th>Price per bag</th>
+		</tr>
+		<tr>
+			<th class="a">Regular</th>
+			<th>$9</th>
+		</tr>
+		<tr>
+			<th class="a">Decaffeinated</th>
+			<th>$8</th>
+		</tr>
+		<tr>
+			<th class="a">Mocha</th>
+			<th>$11</th>
+		</tr>
+	</table>
+	<button class="btn" onclick="check()">Buy</button>
+	</center>
+	</div>
+	<div id="box2">
+		<p class="write" id="write"></p><center>
+	<button id="pay" class="btn" onclick="pay()">Pay</button></center>
+	<p class="write" id="freciept"></p>
+	</div>
+</div>
+<script type="text/javascript">
+	var ftotal;
+	document.getElementById("pay").style.display="none";
+	function check(){
+
+		var regularbag=parseInt(prompt("How many bags of regular coffee you wants to buy?"));
+		var decafbag=parseInt(prompt("How many bags of decaf coffee you wants to buy?"));
+		var mochabag=parseInt(prompt("How many bags of mocha coffee you wants to buy?"));
+		var regular=regularbag*9;
+		var decaf=decafbag*8;
+		var mocha=mochabag*11;
+
+		var total=regular+decaf+mocha;
+		document.getElementById("box2").style.display="block";
+		if (total>100) 
+		{
+			 ftotal=total-15;
+		}
+		else{
+			ftotal=total;
+		}
+		document.getElementById("write").innerHTML="You purchased "+ regularbag+ " bags of regular, totaling "+regular+" dollars. <br> You purchased "+ decafbag+ " bags of decaf, totaling "+decaf+" dollars. <br> You purchased "+ mochabag+ " bags of mocha, totaling "+mocha+" dollars. <br><br> Your total purchase cost is "+ftotal +" dollars.  ";
+		document.getElementById("pay").style.display="block";
+	}
+	function pay(){
+		var save=confirm("Do you want to become a member of the Save the Aardvark Foundation and save 20% on your purchase?");
+		if (save== true) 
+		{
+			var afterdiscount=(ftotal+50)*20/100;
+			document.getElementById("freciept").innerHTML="Your new purchase cost is "+afterdiscount +" dollars.";
+		}
+		
+	}
+</script>
+</body>
+</html>

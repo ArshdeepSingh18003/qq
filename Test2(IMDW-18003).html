@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>License</title>
+</head>
+<body>
+<form name="myform">
+	<fieldset>
+		<legend>License Form</legend>
+		<label>Date:</label>
+		<input type="text" id="dat"><br><br>	
+		<label>License Id</label>
+		<input type="text" id="de"><br><br>	
+		<label>First Name:</label>
+		<input type="text" id="names" onkeyup="cap()" placeholder="First Name"><br><br>
+		<label>Last Name:</label>
+		<input type="text" id="lnames" onkeyup="cap()" placeholder="Last Name"><br><br>
+		<label>Email</label>
+		<input type="text" id="mail"><br><br>	
+		<label>Validity</label>
+		<input type="text" id="validities"><br><br>
+		<label>Location</label>
+		<select id="Select" onchange="Functioner()">
+			<option value="">Choose...</option>
+			<option value="Assam">Assam</option>
+			<option value="Goa">Goa</option>
+			<option value="Sikkim">Sikkim</option>
+			<option value="other">Other</option>
+		</select>
+		<input type="text" id="location"><br><br>	
+		<label>Pin</label>
+		<input type="text" id="pn"><br><br>
+		<button onclick="submi()">Submit</button>
+<script type="text/javascript">
+	document.getElementById("location").style.display="none";
+	var todaydate= new Date();
+	var day=todaydate.getDate();
+	var month=todaydate.getMonth()+1;
+	var year=todaydate.getFullYear();
+	var datestring=day+"/"+month+"/"+year;
+	document.getElementById("dat").value=datestring;
+    
+    function Functioner(){
+	var location=document.getElementById("location");
+	var slct=document.getElementById("Select").value;
+	if (slct == "other") {
+	var p=prompt("Enter your location");
+	location.style.display="block";
+	location.value=p;	 
+	}		
+
+}
+	function cap()
+{
+	var ftext=document.getElementById("names");
+	ftext.value=ftext.value.toUpperCase();
+	var ltext=document.getElementById("lnames");
+	ltext.value=ltext.value.toUpperCase();
+}
+function submi(){
+	var d=document.getElementById("de").value;
+	var validity=document.getElementById("validities").value;
+	var pin=document.getElementById("pn").value;
+	var e=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	var mail=document.getElementById("mail").value;
+	if (d=="" || isNaN(d))
+	{
+		alert("Insert your License id in number only.");
+	}
+	else if(validity<1){
+		alert("Validity should be more then 1.");
+	}
+	else if(pin.length<6)
+	{
+		alert("Pin should not be less then 6 digits.");
+	}
+	if(!mail.match(e)) {
+		alert("You have entered an invalid email address!");
+		return false;
+	}	
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" id="ph" name="push">
+<p id="demo"></p>
+<button onclick="ph()">click</button>
+<script type="text/javascript">
+	var cars=["velvo","BMW","Honda"];
+	document.getElementById('demo').innerHTML=cars;
+	
+
+	function ph() {
+		var push=document.getElementById('ph').value;
+		cars.push(push);
+		document.getElementById('demo').innerHTML=cars;
+	}
+</script>
+</body>
+</html>

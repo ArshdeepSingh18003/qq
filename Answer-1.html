@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Answer-1</title>
+</head>
+<body>
+	<h1>Answer-1</h1>
+<form name="myform">
+	<fieldset>
+		<legend>SIGN UP</legend>
+		<label>Date:</label>
+		<input type="text" id="date"><br><br>	
+		<label>First Name:</label>
+		<input type="text" id="name" onkeyup="kup()" placeholder="First Name"><br><br>
+		<label>Last Name:</label>
+		<input type="text" id="lname" onkeyup="kup()" placeholder="Last Name"><br><br>
+		<label>Gender:</label>
+		<input type="radio" name="gender">Male
+		<input type="radio" name="gender">Female<br><br>
+		<label>Phone No:</label>
+		<input type="tel" id="phn" placeholder="+91-0000000000"><br><br>
+		<label>State</label>
+		<select id="myselect">
+			<option value="">Choose...</option>
+			<option value="Assam">Assam</option>
+			<option value="Goa">Goa</option>
+			<option value="Sikkim">Sikkim</option>
+			<option value="Tripura">Tripura</option>
+		</select><br><br>
+		<label>Subject:</label><br>
+		<input name="sub" type="checkbox">HTML
+		<input name="sub" type="checkbox">CSS
+		<input name="sub" type="checkbox">Javascript
+		<input name="sub" type="checkbox">PHP
+		<input name="sub" type="checkbox">Database
+		<input name="sub" type="checkbox">Photoshop<br><br>
+		<label>Password</label>
+		<input type="Password" id="pass"><br><br>
+		<label>Confirm Password</label>
+		<input type="Password" id="cpass"><br><br>
+		<input type="checkbox" id="agree">
+		I agree with terms and conditions<br><br>
+		<input type="submit" onclick="n()" value="Submit">
+	</fieldset>
+</form>
+<script type="text/javascript">
+
+	var pass=document.getElementById("pass").value;
+	var cpass=document.getElementById("cpass").value;
+	var todaydate= new Date();
+	var day=todaydate.getDate();
+	var month=todaydate.getMonth()+1;
+	var year=todaydate.getFullYear();
+	var datestring=day+"/"+month+"/"+year;
+	document.getElementById("date").value=datestring;
+	document.getElementById("name").maxLength = "12";
+	document.getElementById("lname").maxLength = "12";
+	document.getElementById("pass").maxLength="10";
+	document.getElementById("cpass").maxLength="10";
+function kup()
+{
+	var ftext=document.getElementById("name");
+	ftext.value=ftext.value.toUpperCase();
+	var ltext=document.getElementById("lname");
+	ltext.value=ltext.value.toUpperCase();
+}
+function n(){
+	 	var fname = document.getElementById("name").value;
+	 	var lname = document.getElementById("lname").value;
+	 	var phn=document.getElementById("phn").value;
+	 	var slct=document.getElementById("myselect").value;
+	 	var pass=document.getElementById("pass").value;
+	 	var cpass=document.getElementById("cpass").value;
+	 	var agree=document.getElementById("agree").checked;
+		var sub = document.forms["myform"]["sub"];
+  if (fname == "" || lname == "" || phn == "" || slct == "" || pass == "" || cpass == "" || agree == false) 
+  {
+    alert("All fields must be filled.");
+  }
+  else if(document.getElementByName("gender").checked = false){
+  	alert("select gender");
+  }
+  /*else if ((sub[0].checked == false && sub[1].checked == false && sub[2].checked == false && sub[3].checked == false && sub[4].checked == false) || (sub[0].checked == false && sub[1].checked == false && sub[2].checked == false && sub[3].checked == false && sub[5].checked == false) || (sub[0].checked == false && sub[1].checked == false && sub[2].checked == false && sub[5].checked == false && sub[4].checked == false) || (sub[0].checked == false && sub[1].checked == false && sub[5].checked == false && sub[3].checked == false && sub[4].checked == false) || (sub[0].checked == false && sub[5].checked == false && sub[2].checked == false && sub[3].checked == false && sub[4].checked == false) || (sub[5].checked == false && sub[1].checked == false && sub[2].checked == false && sub[3].checked == false && sub[4].checked == false) ) 
+  {
+  	alert("select minimum 5 subjects.");
+  }*/
+  else if (pass!==cpass)
+  {
+  	alert("Provide same Password.");
+  }
+else if (!gender.checked) 
+{
+    alert("Please Select Your Gender");
+}
+}	 
+</script>
+</body>
+</html>
